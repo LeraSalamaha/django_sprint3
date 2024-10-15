@@ -10,4 +10,3 @@ urlpatterns = [
     path('rules/', rules, name='rules'),
 
 ]
- 
