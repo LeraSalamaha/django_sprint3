@@ -18,8 +18,8 @@ class Post(models.Model):
     )
     location = models.ForeignKey(
         'Location',
-        on_delete=models.SET_NULL,
-        null=False,
+        on_delete=models.CASCADE,
+        null=True,
         verbose_name='Местоположение'
     )
     category = models.ForeignKey(
