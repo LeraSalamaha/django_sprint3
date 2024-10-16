@@ -44,7 +44,7 @@ def category_posts(request, category_slug):
     """Views функция для выводов постов выбранной категории."""
     template_name = 'blog/category.html'
 
-    category = get_object_or_404(Category, slug=category_slug)
+    category = get_object_or_404(Category, slug=category_slug, is_published=True)
 
     post_list = Post.objects.filter(
         category=category,
