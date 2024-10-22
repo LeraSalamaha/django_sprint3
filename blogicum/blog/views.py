@@ -1,19 +1,11 @@
 """Views функция для blog."""
 from django.shortcuts import render, get_object_or_404
-from django.utils import timezone
 
-from .models import Post, Category
+from .models import Category
+
+from .utils import get_published_posts
 
 LIMIT_POSTS_COUNT = 5
-
-
-def get_published_posts():
-    """Views функция возвращает опубликованные посты."""
-    return Post.objects.filter(
-        is_published=True,
-        pub_date__lte=timezone.now(),
-        category__is_published=True
-    )
 
 
 def index(request):
