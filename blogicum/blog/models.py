@@ -19,7 +19,7 @@ class Publications(models.Model):
         abstract = True
 
 
-class Post(DuplicateClassElement):
+class Post(Publications):
     title = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Заголовок')
@@ -55,7 +55,7 @@ class Post(DuplicateClassElement):
         return self.title[:MAX_LENGTH_STR]
 
 
-class Category(DuplicateClassElement):
+class Category(Publications):
     title = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Заголовок')
@@ -75,7 +75,7 @@ class Category(DuplicateClassElement):
         return self.title[:MAX_LENGTH_STR]
 
 
-class Location(DuplicateClassElement):
+class Location(Publications):
     name = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Название места')
