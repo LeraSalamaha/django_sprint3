@@ -6,7 +6,7 @@ CHAR_FIELD_MAX_LENGT = 256
 MAX_LENGTH_STR = 15
 
 
-class DuplicateClassElement(models.Model):
+class Publications(models.Model):
     is_published = models.BooleanField(
         default=True,
         verbose_name='Опубликовано',

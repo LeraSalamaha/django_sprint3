@@ -2,7 +2,6 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Category
-
 from .utils import get_published_posts
 
 LIMIT_POSTS_COUNT = 5
