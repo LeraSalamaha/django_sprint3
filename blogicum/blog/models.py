@@ -3,9 +3,10 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 CHAR_FIELD_MAX_LENGT = 256
+MAX_LENGTH_STR = 15
 
 
-class BaseModel(models.Model):
+class DuplicateClassElement(models.Model):
     is_published = models.BooleanField(
         default=True,
         verbose_name='Опубликовано',
@@ -18,7 +19,7 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class Post(BaseModel):
+class Post(DuplicateClassElement):
     title = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Заголовок')
@@ -51,10 +52,10 @@ class Post(BaseModel):
         verbose_name_plural = 'Публикации'
 
     def __str__(self):
-        return self.title[:15]
+        return self.title[:MAX_LENGTH_STR]
 
 
-class Category(BaseModel):
+class Category(DuplicateClassElement):
     title = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Заголовок')
@@ -71,10 +72,10 @@ class Category(BaseModel):
         verbose_name_plural = 'Категории'
 
     def __str__(self):
-        return self.title[:15]
+        return self.title[:MAX_LENGTH_STR]
 
 
-class Location(BaseModel):
+class Location(DuplicateClassElement):
     name = models.CharField(
         max_length=CHAR_FIELD_MAX_LENGT,
         verbose_name='Название места')
@@ -84,4 +85,4 @@ class Location(BaseModel):
         verbose_name_plural = 'Местоположения'
 
     def __str__(self):
-        return self.name[:15]
+        return self.name[:MAX_LENGTH_STR]
